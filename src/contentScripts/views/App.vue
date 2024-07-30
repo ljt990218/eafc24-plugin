@@ -1,10 +1,29 @@
 <script setup lang="ts">
-import { useToggle } from '@vueuse/core'
 import 'uno.css'
 
-const [show, toggle] = useToggle(false)
-
 console.log('eafc24 v0.0.1')
+
+function clearElements() {
+  // basePack ut-pack-graphic-view
+  const ele = document.getElementsByClassName('ut-pack-graphic-view')
+  console.log(ele)
+
+  for (let index = 0; index < ele.length; index++) {
+    ele[index].hidden = true
+    // ele[index].innerHTML = ''
+    // ele[index].style.display = 'none'
+  }
+
+  // ut-store-pack-details-view--content
+  const ele2 = document.getElementsByClassName('ut-store-pack-details-view--content')
+  console.log(ele2)
+
+  for (let index = 0; index < ele2.length; index++) {
+    ele2[index].hidden = true
+    // ele2[index].innerHTML = ''
+    // ele2[index].style.display = 'none'
+  }
+}
 
 document.addEventListener('keydown', (event) => {
   if (event.code === 'Space') {
@@ -30,18 +49,9 @@ document.addEventListener('keydown', (event) => {
 
 <template>
   <div class="fixed right-0 bottom-0 m-5 z-100 flex items-end font-sans select-none leading-1em">
-    <div
-      class="bg-white text-gray-800 rounded-lg shadow w-max h-min" p="x-4 y-2" m="y-auto r-2"
-      transition="opacity duration-300" :class="show ? 'opacity-100' : 'opacity-0'"
-    >
-      <h1 class="text-lg">
-        Vitesse WebExt
-      </h1>
-      <SharedSubtitle />
-    </div>
     <button
       class="flex w-10 h-10 rounded-full shadow cursor-pointer border-none" bg="teal-600 hover:teal-700"
-      @click="toggle()"
+      @click="clearElements()"
     >
       <pixelarticons-power class="block m-auto text-white text-lg" />
     </button>
